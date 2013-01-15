@@ -1,0 +1,64 @@
+body {
+  background-color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+div#main {
+  width: 100%;
+  height: 400px;
+  background-color: #78878f;
+  position: relative;
+  overflow: hidden;
+}
+
+div#main span.clouds,
+div#main h1 {
+  position: absolute;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+div#main #text {
+  top: 40%;
+  left: 40%;
+  position: absolute;
+  cursor: default;
+  z-index: 0;
+  opacity: .15;
+  position: relative;
+  color: #000;
+}
+
+div#main span.clouds {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background: url(clouds.png) repeat-x 0 0;
+  opacity: 0;
+}
+
+@-webkit-keyframes clouds_bg {
+  0% { background-position: 1280px 0; opacity: 1; }
+  50% { background-position: 640px 0; opacity: .75; }
+  100% { background-position: 0 0; opacity: 1; }
+}
+
+@-webkit-keyframes clouds_fg_1 {
+  0% { background-position: 1580px 0; opacity: .5; }
+  50% { background-position: 940px 0; opacity: .25; }
+  100% { background-position: 300px 0; opacity: .5; }
+}
+
+@-webkit-keyframes clouds_fg_2 {
+  0% { background-position: 420px 0; opacity: .08; }
+  50% { background-position: 1060px 0; opacity: .15; }
+  100% { background-position: 1700px 0; opacity: .08; }
+}
+
+div#main span#clouds_bg { opacity: .87; z-index: 1; -webkit-animation: clouds_bg 75s normal infinite linear; }
+div#main span#clouds_fg_1 { top: 32px; opacity: .37; z-index: 4; -webkit-animation: clouds_fg_1 20s normal infinite linear; }
+div#main span#clouds_fg_2 { top: 16px; opacity: .1; z-index: 3; -webkit-animation: clouds_fg_2 40s normal infinite linear; }
+
+
