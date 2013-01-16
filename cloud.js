@@ -22,11 +22,12 @@ $(document).ready(function(){
         }
     }
 
-    function update(i) {
+    function update(i, twitt) {
         $('#main').css('background-color', colors[i]);
         $('#text').css('opacity', opacities[i]);
         $('h1').text(text[i]);
         $('.clouds').show();
+        $('#status').text('Last update: ' +twitt);
     }
 
     $('input').change(function(){
@@ -37,10 +38,11 @@ $(document).ready(function(){
     // this v1 api will be depracated from 03/05/2013 :(
     var re = /;(\s*\d+);/;
     $.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name=BeijingAir&count=1', function(data){
-        var number = parseInt(re.exec(data[0].text)[1]);
+        var twitt = data[0].text;
+        var number = parseInt(re.exec(twitt)[1]);
         console.log(number);
         var index = getIndex(number);
-        update(index);
+        update(index, twitt);
     });
 });
 
